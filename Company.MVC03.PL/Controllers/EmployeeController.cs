@@ -200,8 +200,6 @@ namespace Company.MVC.PL.Controllers
             return await Edit(id, "Delete");
         }
 
-        [Authorize(Roles = "Admin")]
-
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete([FromRoute] int id, CreateEmployeeDTO model)
