@@ -1,0 +1,26 @@
+﻿@model UserToReturnDTO
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Page </h1>
+
+<br />
+<br />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+
+    <partial name="UserPartialView/_CreateEditPartialView" />
+
+    <div class="my-3">
+
+        <input type="submit" value="Save" asp-action="Edit" class="btn btn-primary" />
+        <a asp-action="User" class="btn btn-light">Back To List</a>
+    </div>
+
+</form>
+@section ValidationSection
+{
+    <partial name="_ValidationScriptsPartial" />
+}
+

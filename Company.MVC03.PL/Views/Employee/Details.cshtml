@@ -1,0 +1,21 @@
+﻿@model CreateEmployeeDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details Page</h1>
+
+<br />
+<br />
+
+<div>
+
+    <partial name="EmployeePartialView/_DeleteDetailsPartialView" />
+
+    <div>
+        <a asp-controller="Employee" asp-route-id="@Model.Id" asp-action="Edit" class="btn btn-danger">Edit</a>
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-light">Back To List</a>
+    </div>
+
+</div>
+
