@@ -1,0 +1,10 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "angular-media-queries@0.6.1",
+      "destination": "wwwroot/Media-Q/angular-media-queries/"
+    }
+  ]
+}

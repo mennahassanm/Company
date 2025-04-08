@@ -72,27 +72,27 @@ namespace Company.MVC03.PL
 
             });
 
-            builder.Services.AddAuthentication(O =>
-            {
-                O.DefaultAuthenticateScheme = GoogleDefaults.AuthenticationScheme;
-                O.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-            }).AddGoogle(O =>
-            {
-                O.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-                O.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+            //builder.Services.AddAuthentication(O =>
+            //{
+            //    O.DefaultAuthenticateScheme = GoogleDefaults.AuthenticationScheme;
+            //    O.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+            //}).AddGoogle(O =>
+            //{
+            //    O.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+            //    O.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
 
-            });
+            //});
 
-            builder.Services.AddAuthentication(O =>
-            {
-                O.DefaultAuthenticateScheme = FacebookDefaults.AuthenticationScheme;
-                O.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
-            }).AddFacebook(O =>
-            {
-                O.ClientId = builder.Configuration["Authentication:facebook:ClientId"];
-                O.ClientSecret = builder.Configuration["Authentication:facebook:ClientSecret"];
+            //builder.Services.AddAuthentication(O =>
+            //{
+            //    O.DefaultAuthenticateScheme = FacebookDefaults.AuthenticationScheme;
+            //    O.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
+            //}).AddFacebook(O =>
+            //{
+            //    O.ClientId = builder.Configuration["Authentication:facebook:ClientId"];
+            //    O.ClientSecret = builder.Configuration["Authentication:facebook:ClientSecret"];
 
-            });
+            //});
 
             var app = builder.Build();
 

@@ -44,7 +44,7 @@ namespace Company.MVC.PL.Controllers
             }
             else
             {
-                employees =await _unitOfWork.EmployeeRepository.GetByNameAsync(SearchInput);
+                employees = await _unitOfWork.EmployeeRepository.GetByNameAsync(SearchInput);
             }
 
             // Dictionary   : 3 Property
@@ -85,8 +85,8 @@ namespace Company.MVC.PL.Controllers
         public async Task<IActionResult> Create()
         {
             var departments = await _unitOfWork.DepartmentRepository.GetAllAsync();
-            ViewData["departments"] = departments ;
-            return View();  
+            ViewData["departments"] = departments;
+            return View();
         }
 
         [HttpPost]
@@ -104,7 +104,7 @@ namespace Company.MVC.PL.Controllers
 
                     var employee = _mapper.Map<Employee>(model);
 
-                     await _unitOfWork.EmployeeRepository.AddAsync(employee);
+                    await _unitOfWork.EmployeeRepository.AddAsync(employee);
 
                     var Count = await _unitOfWork.CompleteAsync();
 
@@ -117,7 +117,7 @@ namespace Company.MVC.PL.Controllers
                 }
                 catch (Exception ex)
                 {
-                    ModelState.AddModelError ("", ex.Message);
+                    ModelState.AddModelError("", ex.Message);
                 }
 
 
@@ -145,7 +145,7 @@ namespace Company.MVC.PL.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int? id, string viewName = "Edit")
         {
-          
+
             if (id is null)
                 return BadRequest("Invalid Id");
             var employee = await _unitOfWork.EmployeeRepository.GetAsync(id.Value);
@@ -155,8 +155,8 @@ namespace Company.MVC.PL.Controllers
                 return NotFound(new { StatusCode = 404, message = $"Department With Id {id} Is Not Found :(" });
 
             var dto = _mapper.Map<CreateEmployeeDTO>(employee);
-             
-            return View(viewName,dto);
+
+            return View(viewName, dto);
         }
 
 
@@ -182,7 +182,7 @@ namespace Company.MVC.PL.Controllers
                 var employee = _mapper.Map<Employee>(model);
                 employee.Id = id;
 
-               _unitOfWork.EmployeeRepository.Update(employee);
+                _unitOfWork.EmployeeRepository.Update(employee);
                 var Count = await _unitOfWork.CompleteAsync();
                 if (Count > 0)
                 {
@@ -200,7 +200,7 @@ namespace Company.MVC.PL.Controllers
             return await Edit(id, "Delete");
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
@@ -220,13 +220,14 @@ namespace Company.MVC.PL.Controllers
                     {
                         DocumentSettings.DeleteFile(model.ImageName, "Images");
                     }
-                        return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
                 }
-                
+
             }
 
             return View(model);
         }
+
 
     }
 }

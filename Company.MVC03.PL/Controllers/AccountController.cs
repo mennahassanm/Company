@@ -58,6 +58,7 @@ namespace Company.MVC.PL.Controllers
                             UserName = model.UserName,
                             FirstName = model.FirstName,
                             LastName = model.LastName,
+                            PhoneNumber = model.Phone,
                             Email = model.Email,
                             IsAgree = model.IsAgree
 

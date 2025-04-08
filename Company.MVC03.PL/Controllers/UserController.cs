@@ -26,6 +26,7 @@ namespace Company.MVC.PL.Controllers
                     UserName = U.UserName,
                     FirstName = U.FirstName, 
                     LastName = U.LastName,
+                    Phone = U.PhoneNumber,
                     Email = U.Email,
                     Roles = _userManager.GetRolesAsync(U).Result
                 });
@@ -39,6 +40,7 @@ namespace Company.MVC.PL.Controllers
                     UserName = U.UserName,
                     FirstName = U.FirstName,
                     LastName = U.LastName,
+                    Phone = U.PhoneNumber,
                     Email = U.Email,
                     Roles = _userManager.GetRolesAsync(U).Result
 
@@ -61,6 +63,7 @@ namespace Company.MVC.PL.Controllers
                 UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Phone = user.PhoneNumber,
                 Email = user.Email,
                 Roles = _userManager.GetRolesAsync(user).Result
             };
@@ -89,6 +92,7 @@ namespace Company.MVC.PL.Controllers
                 user.UserName = model.UserName;
                 user.FirstName = model.FirstName;
                 user.LastName = model.LastName;
+                user.PhoneNumber = model.Phone;
                 user.Email = model.Email;
 
                 var Result = await _userManager.UpdateAsync(user);
